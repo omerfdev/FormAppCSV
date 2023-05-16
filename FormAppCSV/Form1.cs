@@ -1,22 +1,21 @@
 ﻿using System.Data;
 using System;
 using System.Text;
+using System.Linq;
 
 namespace FormAppCSV
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form, IYonetici
     {
         public Form1()
         {
             InitializeComponent();
-
-
         }
-        string filePath = @"C:\Data.csv";
+
         private void Form1_Load(object sender, EventArgs e)
         {
             buttonUrunSil.Enabled = false;
-           
+
             using (StreamReader sr = new StreamReader(@"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\bin\Debug\net6.0-windows\Data.csv"))
             {
                 DataTable dt = new DataTable();
@@ -41,16 +40,31 @@ namespace FormAppCSV
 
         }
         List<Urun> urunler = new List<Urun>();
-        private void buttonUrunEkle_Click(object sender, EventArgs e)
+
+        public int UrunID { get; set; }
+        public string UrunAd { get; set; }
+        public double UrunFiyat { get; set; }
+        public string UrunKategori { get; set; }
+        Urun urun = new Urun();
+        public void Sil()
         {
+            int selectedIndex = dataGridView1.SelectedRows[0].Index;
+            dataGridView1.Rows.RemoveAt(selectedIndex);
+            SilSatirFromCSV(selectedIndex);
+            void SilSatirFromCSV(int rowIndex)
+            {
+                string csvFilePath = @"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\bin\Debug\net6.0-windows\Data.csv";
+                string[] lines = File.ReadAllLines(csvFilePath);
+                List<string> updatedLines = new List<string>(lines);
+                updatedLines.RemoveAt(rowIndex);
+                File.WriteAllLines(csvFilePath, updatedLines);
+            }
 
-            int id = int.Parse(textBoxUrunID.Text);
-            string ad = textBoxUrunAdi.Text;
-            double fiyat = Double.Parse(textBoxUrunFiyat.Text);
-            string kategori = textBoxKategori.Text;
+        }
 
-            urunler.Add(new Urun { UrunID = id, UrunAd = ad, UrunFiyat = fiyat, UrunKategori = kategori });
-            dataGridView1.Refresh();
+        public void Ekle()
+        {
+            urunler.Add(new Urun { UrunID = int.Parse(textBoxUrunID.Text), UrunAd = textBoxUrunAdi.Text, UrunFiyat = double.Parse(textBoxUrunFiyat.Text), UrunKategori = textBoxKategori.Text });
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = urunler;
             using (StreamWriter writer = new StreamWriter("Data.csv"))
@@ -62,7 +76,6 @@ namespace FormAppCSV
                 }
                 writer.Close();
             }
-
             textBoxUrunID.Text = "";
             textBoxUrunAdi.Text = "";
             textBoxUrunFiyat.Text = "";
@@ -70,14 +83,57 @@ namespace FormAppCSV
 
         }
 
+        public void Kaydet()
+        {
+            void KaydetCSV(string filePath, DataGridView dataGridView)
+            {
+                string[] headers = dataGridView.Columns.Cast<DataGridViewColumn>()
+                                            .Select(column => column.HeaderText)
+                                            .ToArray();
+                string[][] data = dataGridView.Rows.Cast<DataGridViewRow>()
+                                            .Where(row => !row.IsNewRow)
+                                            .Select(row => row.Cells.Cast<DataGridViewCell>()
+                                                            .Select(cell => cell.Value?.ToString() ?? "")
+                                                            .ToArray())
+                                            .ToArray();
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine(string.Join(",", headers));
+                    foreach (string[] row in data)
+                    {
+                        sw.WriteLine(string.Join(",", row));
+                    }
+                }
+            }
+
+        }
+
+        public void Ara()
+        {
+
+        }
+        private void buttonUrunEkle_Click(object sender, EventArgs e)
+        {
+            Ekle();
+        }
+        private void buttonUrunSil_Click(object sender, EventArgs e)
+        {
+            Sil();
+
+        }
         private void buttonAra_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textBoxUrunID.Text);
-            var satır = from urun in urunler
-                            where urun.UrunID == id
-                            select urun;
-           
+          
+        }
 
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            buttonUrunSil.Enabled = true;                   
+        }
+
+        private void buttonDosyayaKaydet_Click(object sender, EventArgs e)
+        {
+            Kaydet();
         }
     }
 }

@@ -108,6 +108,7 @@
             buttonUrunSil.TabIndex = 6;
             buttonUrunSil.Text = "Ürün Sil";
             buttonUrunSil.UseVisualStyleBackColor = true;
+            buttonUrunSil.Click += buttonUrunSil_Click;
             // 
             // buttonDosyayaKaydet
             // 
@@ -117,6 +118,7 @@
             buttonDosyayaKaydet.TabIndex = 7;
             buttonDosyayaKaydet.Text = "Dosyaya Kaydet";
             buttonDosyayaKaydet.UseVisualStyleBackColor = true;
+            buttonDosyayaKaydet.Click += buttonDosyayaKaydet_Click;
             // 
             // dataGridView1
             // 
@@ -127,6 +129,7 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(605, 233);
             dataGridView1.TabIndex = 8;
+            dataGridView1.CellMouseClick += dataGridView1_CellMouseClick;
             // 
             // Form1
             // 
