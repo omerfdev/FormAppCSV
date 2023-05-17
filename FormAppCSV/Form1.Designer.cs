@@ -37,6 +37,7 @@
             buttonUrunSil = new Button();
             buttonDosyayaKaydet = new Button();
             dataGridView1 = new DataGridView();
+            lblLastWrite = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -129,13 +130,23 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(605, 233);
             dataGridView1.TabIndex = 8;
-            dataGridView1.CellMouseClick += dataGridView1_CellMouseClick;
+         
+          
+            // 
+            // lblLastWrite
+            // 
+            lblLastWrite.AutoSize = true;
+            lblLastWrite.Location = new Point(12, 5);
+            lblLastWrite.Name = "lblLastWrite";
+            lblLastWrite.Size = new Size(0, 20);
+            lblLastWrite.TabIndex = 9;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(711, 450);
+            Controls.Add(lblLastWrite);
             Controls.Add(dataGridView1);
             Controls.Add(buttonDosyayaKaydet);
             Controls.Add(buttonUrunSil);
@@ -166,5 +177,6 @@
         private Button buttonUrunSil;
         private Button buttonDosyayaKaydet;
         private DataGridView dataGridView1;
+        private Label lblLastWrite;
     }
 }

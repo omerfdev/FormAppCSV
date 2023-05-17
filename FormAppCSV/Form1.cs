@@ -3,6 +3,7 @@ using System;
 using System.Text;
 using System.Linq;
 
+
 namespace FormAppCSV
 {
     public partial class Form1 : Form, IYonetici
@@ -15,7 +16,7 @@ namespace FormAppCSV
         private void Form1_Load(object sender, EventArgs e)
         {
             buttonUrunSil.Enabled = false;
-
+            lblLastWrite.Text = Convert.ToString("Last Write Time: " + Directory.GetLastWriteTime(@"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\bin\Debug\net6.0-windows\Data.csv"));
             using (StreamReader sr = new StreamReader(@"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\bin\Debug\net6.0-windows\Data.csv"))
             {
                 DataTable dt = new DataTable();
@@ -46,22 +47,7 @@ namespace FormAppCSV
         public double UrunFiyat { get; set; }
         public string UrunKategori { get; set; }
         Urun urun = new Urun();
-        public void Sil()
-        {
-            int selectedIndex = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.Rows.RemoveAt(selectedIndex);
-            SilSatirFromCSV(selectedIndex);
-            void SilSatirFromCSV(int rowIndex)
-            {
-                string csvFilePath = @"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\bin\Debug\net6.0-windows\Data.csv";
-                string[] lines = File.ReadAllLines(csvFilePath);
-                List<string> updatedLines = new List<string>(lines);
-                updatedLines.RemoveAt(rowIndex);
-                File.WriteAllLines(csvFilePath, updatedLines);
-            }
-
-        }
-
+        public void Sil() { }
         public void Ekle()
         {
             urunler.Add(new Urun { UrunID = int.Parse(textBoxUrunID.Text), UrunAd = textBoxUrunAdi.Text, UrunFiyat = double.Parse(textBoxUrunFiyat.Text), UrunKategori = textBoxKategori.Text });
@@ -107,10 +93,37 @@ namespace FormAppCSV
             }
 
         }
-
+        int indis;
         public void Ara()
         {
+            indis = urunler.FindIndex(x => x.UrunID == int.Parse(textBoxUrunID.Text));
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = urunler;
+            buttonUrunSil.Enabled = true;
+            dataGridView1.CurrentCell = dataGridView1.Rows[indis].Cells[0];
+            string arananUrunID = textBoxUrunID.Text;
+            int sayacUrunID = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null && cell.Value.ToString().Equals(arananUrunID))
+                    {
+                        int UrunIDCell = Convert.ToInt32(cell.Value.ToString());
+                        sayacUrunID++;
+                        break;
+                    }
+                }
+            }
+            if (sayacUrunID == 0)
+            {
+                MessageBox.Show("ID Not Found", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (sayacUrunID >= 1)
+            {
+                MessageBox.Show("ID detected", "Already exist ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
         }
         private void buttonUrunEkle_Click(object sender, EventArgs e)
         {
@@ -118,22 +131,42 @@ namespace FormAppCSV
         }
         private void buttonUrunSil_Click(object sender, EventArgs e)
         {
-            Sil();
+            urun.Sil(indis + 1);
+            using (StreamReader sr = new StreamReader(@"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\bin\Debug\net6.0-windows\Data.csv"))
+            {
+                DataTable dt = new DataTable();
+                string[] headers = sr.ReadLine().Split(',');
+                foreach (string header in headers)
+                {
+                    dt.Columns.Add(header);
+                }
+                while (!sr.EndOfStream)
+                {
+                    string[] rows = sr.ReadLine().Split(',');
+                    DataRow dr = dt.NewRow();
+                    for (int i = 0; i < headers.Length; i++)
+                    {
+                        dr[i] = rows[i];
+                    }
+                    dt.Rows.Add(dr);
+                }
+                dataGridView1.DataSource = dt;
+            }
+
+         
 
         }
         private void buttonAra_Click(object sender, EventArgs e)
         {
-          
-        }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            buttonUrunSil.Enabled = true;                   
+            Ara();
         }
 
         private void buttonDosyayaKaydet_Click(object sender, EventArgs e)
         {
             Kaydet();
         }
+
+
     }
 }
