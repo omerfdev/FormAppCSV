@@ -30,7 +30,7 @@ namespace FormAppCSV
 
         public void Sil(int row)
         {
-            string csvFilePath = @"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\bin\Debug\net6.0-windows\Data.csv";
+            string csvFilePath = @"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\Data\Data.csv";
             string[] lines = File.ReadAllLines(csvFilePath);
             List<string> updatedLines = new List<string>(lines);
             updatedLines.RemoveAt(row);
