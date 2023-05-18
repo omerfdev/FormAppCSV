@@ -153,7 +153,7 @@ namespace FormAppCSV
                 dataGridView1.DataSource = dt;
             }
 
-         
+
 
         }
         private void buttonAra_Click(object sender, EventArgs e)

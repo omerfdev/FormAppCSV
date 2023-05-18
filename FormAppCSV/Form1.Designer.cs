@@ -130,8 +130,6 @@
             dataGridView1.RowTemplate.Height = 29;
             dataGridView1.Size = new Size(605, 233);
             dataGridView1.TabIndex = 8;
-         
-          
             // 
             // lblLastWrite
             // 
