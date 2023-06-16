@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBoxUrunID = new TextBox();
             textBoxUrunAdi = new TextBox();
             textBoxUrunFiyat = new TextBox();
             textBoxKategori = new TextBox();
-            buttonAra = new Button();
-            buttonUrunEkle = new Button();
-            buttonUrunSil = new Button();
-            buttonDosyayaKaydet = new Button();
+            btnAra = new Button();
+            btnUrunEkle = new Button();
+            btnUrunSil = new Button();
+            btnDosyayaKaydet = new Button();
             dataGridView1 = new DataGridView();
             lblLastWrite = new Label();
+            btnGuncelle = new Button();
+            btnListele = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -81,45 +84,45 @@
             textBoxKategori.Size = new Size(125, 27);
             textBoxKategori.TabIndex = 3;
             // 
-            // buttonAra
+            // btnAra
             // 
-            buttonAra.Location = new Point(200, 53);
-            buttonAra.Name = "buttonAra";
-            buttonAra.Size = new Size(94, 29);
-            buttonAra.TabIndex = 4;
-            buttonAra.Text = "Ara";
-            buttonAra.UseVisualStyleBackColor = true;
-            buttonAra.Click += buttonAra_Click;
+            btnAra.Location = new Point(200, 53);
+            btnAra.Name = "btnAra";
+            btnAra.Size = new Size(94, 29);
+            btnAra.TabIndex = 4;
+            btnAra.Text = "Ara";
+            btnAra.UseVisualStyleBackColor = true;
+            btnAra.Click += btnAra_Click;
             // 
-            // buttonUrunEkle
+            // btnUrunEkle
             // 
-            buttonUrunEkle.Location = new Point(200, 152);
-            buttonUrunEkle.Name = "buttonUrunEkle";
-            buttonUrunEkle.Size = new Size(94, 29);
-            buttonUrunEkle.TabIndex = 5;
-            buttonUrunEkle.Text = "Ürün Ekle";
-            buttonUrunEkle.UseVisualStyleBackColor = true;
-            buttonUrunEkle.Click += buttonUrunEkle_Click;
+            btnUrunEkle.Location = new Point(200, 152);
+            btnUrunEkle.Name = "btnUrunEkle";
+            btnUrunEkle.Size = new Size(94, 29);
+            btnUrunEkle.TabIndex = 5;
+            btnUrunEkle.Text = "Ürün Ekle";
+            btnUrunEkle.UseVisualStyleBackColor = true;
+            btnUrunEkle.Click += btnEkle_Click;
             // 
-            // buttonUrunSil
+            // btnUrunSil
             // 
-            buttonUrunSil.Location = new Point(316, 152);
-            buttonUrunSil.Name = "buttonUrunSil";
-            buttonUrunSil.Size = new Size(94, 29);
-            buttonUrunSil.TabIndex = 6;
-            buttonUrunSil.Text = "Ürün Sil";
-            buttonUrunSil.UseVisualStyleBackColor = true;
-            buttonUrunSil.Click += buttonUrunSil_Click;
+            btnUrunSil.Location = new Point(300, 152);
+            btnUrunSil.Name = "btnUrunSil";
+            btnUrunSil.Size = new Size(94, 29);
+            btnUrunSil.TabIndex = 6;
+            btnUrunSil.Text = "Ürün Sil";
+            btnUrunSil.UseVisualStyleBackColor = true;
+            btnUrunSil.Click += btnSil_Click;
             // 
-            // buttonDosyayaKaydet
+            // btnDosyayaKaydet
             // 
-            buttonDosyayaKaydet.Location = new Point(556, 114);
-            buttonDosyayaKaydet.Name = "buttonDosyayaKaydet";
-            buttonDosyayaKaydet.Size = new Size(94, 67);
-            buttonDosyayaKaydet.TabIndex = 7;
-            buttonDosyayaKaydet.Text = "Dosyaya Kaydet";
-            buttonDosyayaKaydet.UseVisualStyleBackColor = true;
-            buttonDosyayaKaydet.Click += buttonDosyayaKaydet_Click;
+            btnDosyayaKaydet.Location = new Point(590, 15);
+            btnDosyayaKaydet.Name = "btnDosyayaKaydet";
+            btnDosyayaKaydet.Size = new Size(94, 67);
+            btnDosyayaKaydet.TabIndex = 7;
+            btnDosyayaKaydet.Text = "Dosyaya Kaydet";
+            btnDosyayaKaydet.UseVisualStyleBackColor = true;
+            btnDosyayaKaydet.Click += btnDosyaKaydet_Click;
             // 
             // dataGridView1
             // 
@@ -128,7 +131,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(605, 233);
+            dataGridView1.Size = new Size(639, 233);
             dataGridView1.TabIndex = 8;
             // 
             // lblLastWrite
@@ -139,25 +142,47 @@
             lblLastWrite.Size = new Size(0, 20);
             lblLastWrite.TabIndex = 9;
             // 
+            // btnGuncelle
+            // 
+            btnGuncelle.Location = new Point(400, 152);
+            btnGuncelle.Name = "btnGuncelle";
+            btnGuncelle.Size = new Size(94, 29);
+            btnGuncelle.TabIndex = 10;
+            btnGuncelle.Text = "Güncelle";
+            btnGuncelle.UseVisualStyleBackColor = true;
+            btnGuncelle.Click += btnGuncelle_Click;
+            // 
+            // btnListele
+            // 
+            btnListele.Location = new Point(500, 152);
+            btnListele.Name = "btnListele";
+            btnListele.Size = new Size(94, 29);
+            btnListele.TabIndex = 11;
+            btnListele.Text = "Listele";
+            btnListele.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(711, 450);
+            Controls.Add(btnListele);
+            Controls.Add(btnGuncelle);
             Controls.Add(lblLastWrite);
             Controls.Add(dataGridView1);
-            Controls.Add(buttonDosyayaKaydet);
-            Controls.Add(buttonUrunSil);
-            Controls.Add(buttonUrunEkle);
-            Controls.Add(buttonAra);
+            Controls.Add(btnDosyayaKaydet);
+            Controls.Add(btnUrunSil);
+            Controls.Add(btnUrunEkle);
+            Controls.Add(btnAra);
             Controls.Add(textBoxKategori);
             Controls.Add(textBoxUrunFiyat);
             Controls.Add(textBoxUrunAdi);
             Controls.Add(textBoxUrunID);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(729, 497);
             MinimumSize = new Size(729, 497);
             Name = "Form1";
-            Text = "Form1";
+            Text = "FormAppCSV";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -170,11 +195,13 @@
         private TextBox textBoxUrunAdi;
         private TextBox textBoxUrunFiyat;
         private TextBox textBoxKategori;
-        private Button buttonAra;
-        private Button buttonUrunEkle;
-        private Button buttonUrunSil;
-        private Button buttonDosyayaKaydet;
+        private Button btnAra;
+        private Button btnUrunEkle;
+        private Button btnUrunSil;
+        private Button btnDosyayaKaydet;
         private DataGridView dataGridView1;
         private Label lblLastWrite;
+        private Button btnGuncelle;
+        private Button btnListele;
     }
 }

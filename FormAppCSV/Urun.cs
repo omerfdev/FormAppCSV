@@ -6,40 +6,17 @@ using System.Threading.Tasks;
 
 namespace FormAppCSV
 {
-    internal class Urun : IYonetici
-    {   
-        
-        public int UrunID { get ; set ; }
-        public string UrunAd { get; set ; }
-        public double UrunFiyat { get; set; }
-        public string UrunKategori { get ; set; }
-        public void Ara()
-        {
-            
-        }
+    internal class Urun 
+    {
 
-        public void Ekle()
-        {
-          
-        }
+        public int UrunID { get; set; }
+        public string UrunAdi { get; set; }
+        public double Fiyat { get; set; }
+        public string Kategori { get; set; }
 
-        public void Kaydet()
+        public override string ToString()
         {
-            
-        }
-
-        public void Sil(int row)
-        {
-            string csvFilePath = @"C:\Users\omerf\source\repos\FormAppCSV\FormAppCSV\Data\Data.csv";
-            string[] lines = File.ReadAllLines(csvFilePath);
-            List<string> updatedLines = new List<string>(lines);
-            updatedLines.RemoveAt(row);
-            File.WriteAllLines(csvFilePath, updatedLines);
-        }
-
-        public void Sil()
-        {
-            
+            return $"{UrunID};{UrunAdi};{Fiyat};{Kategori}";
         }
     }
 }
