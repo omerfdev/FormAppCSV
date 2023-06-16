@@ -72,7 +72,7 @@ namespace FormAppCSV
                 do
                 {
                     string satir = sr.ReadLine();
-                    
+                    //NULL CHECK 
                     if (satir==null)
                     {
                         MessageBox.Show("Kayıt Yoktur...");
