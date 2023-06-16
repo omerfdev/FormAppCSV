@@ -19,6 +19,7 @@ namespace FormAppCSV
             urunYonet = new UrunYonetici("urunler.csv");
             urunYonet.Yukle();
             dataGridView1.DataSource = urunYonet.Listele();
+            lblLastWrite.Text= $"Create Date:{Directory.GetCreationTime(Directory.GetCurrentDirectory()).ToString()} \nLast Write:{Directory.GetLastWriteTime("urunler.csv")} ";
         }
 
         private void btnEkle_Click(object sender, EventArgs e)

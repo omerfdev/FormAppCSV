@@ -65,24 +65,34 @@ namespace FormAppCSV
         public void Yukle()
         {
             List<Urun> _urunler = new List<Urun>();
-            if (DosyaKontrol())
+            if (DosyaKontrol() )
             {
                 StreamReader sr = new StreamReader(_dosyaAdi);
 
                 do
                 {
                     string satir = sr.ReadLine();
-                    string[] dizi = satir.Split(';');
-
-                    Urun urun = new Urun()
+                    
+                    if (satir==null)
                     {
-                        UrunID = int.Parse(dizi[0]),
-                        UrunAdi = dizi[1],
-                        Fiyat = double.Parse(dizi[2]),
-                        Kategori = dizi[3]
+                        MessageBox.Show("Kayıt Yoktur...");
+                    }
+                    else
+                    {
+                        string[] dizi = satir.Split(';');
+                        Urun urun = new Urun()
+                        {
+                            UrunID = int.Parse(dizi[0]),
+                            UrunAdi = dizi[1],
+                            Fiyat = double.Parse(dizi[2]),
+                            Kategori = dizi[3],
                     };
 
-                    _urunler.Add(urun);
+                        _urunler.Add(urun);
+                    }
+
+
+                   
                 }
                 while (!sr.EndOfStream);
                 sr.Close();
@@ -95,7 +105,7 @@ namespace FormAppCSV
         {
             foreach (string str in Directory.GetFiles(Application.StartupPath))
             {
-                if (str.Contains(_dosyaAdi)) return true;
+                if (str.Contains(_dosyaAdi) ) return true;
             }
             return false;
         }
