@@ -96,32 +96,35 @@
             // 
             // btnUrunEkle
             // 
+            btnUrunEkle.BackColor = Color.Lime;
             btnUrunEkle.Location = new Point(200, 152);
             btnUrunEkle.Name = "btnUrunEkle";
             btnUrunEkle.Size = new Size(94, 29);
             btnUrunEkle.TabIndex = 5;
             btnUrunEkle.Text = "Ürün Ekle";
-            btnUrunEkle.UseVisualStyleBackColor = true;
+            btnUrunEkle.UseVisualStyleBackColor = false;
             btnUrunEkle.Click += btnEkle_Click;
             // 
             // btnUrunSil
             // 
+            btnUrunSil.BackColor = Color.FromArgb(192, 0, 0);
             btnUrunSil.Location = new Point(300, 152);
             btnUrunSil.Name = "btnUrunSil";
             btnUrunSil.Size = new Size(94, 29);
             btnUrunSil.TabIndex = 6;
             btnUrunSil.Text = "Ürün Sil";
-            btnUrunSil.UseVisualStyleBackColor = true;
+            btnUrunSil.UseVisualStyleBackColor = false;
             btnUrunSil.Click += btnSil_Click;
             // 
             // btnDosyayaKaydet
             // 
+            btnDosyayaKaydet.BackColor = SystemColors.ActiveCaption;
             btnDosyayaKaydet.Location = new Point(590, 15);
             btnDosyayaKaydet.Name = "btnDosyayaKaydet";
             btnDosyayaKaydet.Size = new Size(94, 67);
             btnDosyayaKaydet.TabIndex = 7;
             btnDosyayaKaydet.Text = "Dosyaya Kaydet";
-            btnDosyayaKaydet.UseVisualStyleBackColor = true;
+            btnDosyayaKaydet.UseVisualStyleBackColor = false;
             btnDosyayaKaydet.Click += btnDosyaKaydet_Click;
             // 
             // dataGridView1
@@ -144,22 +147,24 @@
             // 
             // btnGuncelle
             // 
+            btnGuncelle.BackColor = Color.Cyan;
             btnGuncelle.Location = new Point(400, 152);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(94, 29);
             btnGuncelle.TabIndex = 10;
             btnGuncelle.Text = "Güncelle";
-            btnGuncelle.UseVisualStyleBackColor = true;
+            btnGuncelle.UseVisualStyleBackColor = false;
             btnGuncelle.Click += btnGuncelle_Click;
             // 
             // btnListele
             // 
+            btnListele.BackColor = SystemColors.AppWorkspace;
             btnListele.Location = new Point(500, 152);
             btnListele.Name = "btnListele";
             btnListele.Size = new Size(94, 29);
             btnListele.TabIndex = 11;
             btnListele.Text = "Listele";
-            btnListele.UseVisualStyleBackColor = true;
+            btnListele.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
