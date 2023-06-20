@@ -71,7 +71,7 @@ namespace FormAppCSV
             urun.UrunAdi = textBoxUrunAdi.Text;
             urun.Fiyat = double.Parse(textBoxUrunFiyat.Text);
             urun.Kategori = textBoxKategori.Text;
-            urun.Image = pcBoxProductImage.Image.ToString();
+            urun.Image = pcBoxProductImage.Image;
             return urun;
         }
 

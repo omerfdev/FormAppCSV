@@ -13,7 +13,7 @@ namespace FormAppCSV
         public string UrunAdi { get; set; }
         public double Fiyat { get; set; }
         public string Kategori { get; set; }
-        public string Image { get; set; }
+        public Image Image { get; set; }
 
         public override string ToString()
         {

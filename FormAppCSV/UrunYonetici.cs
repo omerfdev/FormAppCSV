@@ -87,8 +87,8 @@ namespace FormAppCSV
                             UrunAdi = dizi[1],
                             Fiyat = double.Parse(dizi[2]),
                             Kategori = dizi[3],
-                            Image = dizi[4],
-                    };
+                                                    
+                        };
 
                         _urunler.Add(urun);
                     }
