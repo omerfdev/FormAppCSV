@@ -19,7 +19,7 @@ namespace FormAppCSV
             urunYonet = new UrunYonetici("urunler.csv");
             urunYonet.Yukle();
             dataGridView1.DataSource = urunYonet.Listele();
-            lblLastWrite.Text= $"Create Date:{Directory.GetCreationTime(Directory.GetCurrentDirectory()).ToString()} \nLast Write:{Directory.GetLastWriteTime("urunler.csv")} ";
+            lblLastWrite.Text = $"Create Date:{Directory.GetCreationTime(Directory.GetCurrentDirectory()).ToString()} \nLast Write:{Directory.GetLastWriteTime("urunler.csv")} ";
         }
 
         private void btnEkle_Click(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace FormAppCSV
             urun.UrunAdi = textBoxUrunAdi.Text;
             urun.Fiyat = double.Parse(textBoxUrunFiyat.Text);
             urun.Kategori = textBoxKategori.Text;
-
+            urun.Image = pcBoxProductImage.Image.ToString();
             return urun;
         }
 
@@ -91,6 +91,18 @@ namespace FormAppCSV
 
         }
 
-
+        private void btnResimYukle_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Employee Image (png,jpg,gif)|*.png;*.jpg;*.gif)";
+            DialogResult result = ofd.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                pcBoxProductImage.Image = Image.FromFile(ofd.FileName);
+                pcBoxProductImage.Tag = Path.GetExtension(ofd.FileName);
+                pcBoxProductImage.BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            else { }
+        }
     }
 }

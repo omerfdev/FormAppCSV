@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
-namespace FormAppCSV
+namespace FormCSV
 {
-    internal class UrunYonetici: ICRUD<Urun>, IDosya
+    internal class UrunYonetici : ICRUD<Urun>, IDosya
     {
-     
+
 
         List<Urun> urunler = new List<Urun>();
 
@@ -34,7 +35,6 @@ namespace FormAppCSV
             urun.UrunAdi = entity.UrunAdi;
             urun.Fiyat = entity.Fiyat;
             urun.Kategori = entity.Kategori;
-            urun.Image = entity.Image;
         }
 
 
@@ -66,7 +66,7 @@ namespace FormAppCSV
         public void Yukle()
         {
             List<Urun> _urunler = new List<Urun>();
-            if (DosyaKontrol() )
+            if (DosyaKontrol())
             {
                 StreamReader sr = new StreamReader(_dosyaAdi);
 
@@ -74,7 +74,7 @@ namespace FormAppCSV
                 {
                     string satir = sr.ReadLine();
                     //NULL CHECK 
-                    if (satir==null)
+                    if (satir == null)
                     {
                         MessageBox.Show("Kayıt Yoktur...");
                     }
@@ -87,14 +87,13 @@ namespace FormAppCSV
                             UrunAdi = dizi[1],
                             Fiyat = double.Parse(dizi[2]),
                             Kategori = dizi[3],
-                            Image = dizi[4],
-                    };
+                        };
 
                         _urunler.Add(urun);
                     }
 
 
-                   
+
                 }
                 while (!sr.EndOfStream);
                 sr.Close();
@@ -107,7 +106,7 @@ namespace FormAppCSV
         {
             foreach (string str in Directory.GetFiles(Application.StartupPath))
             {
-                if (str.Contains(_dosyaAdi) ) return true;
+                if (str.Contains(_dosyaAdi)) return true;
             }
             return false;
         }
