@@ -29,63 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            textBoxUrunID = new TextBox();
-            textBoxUrunAdi = new TextBox();
-            textBoxUrunFiyat = new TextBox();
-            textBoxKategori = new TextBox();
+            txtBoxUrunID = new TextBox();
+            txtBoxUrunAdi = new TextBox();
+            txtBoxUrunFiyat = new TextBox();
+            txtBoxKategori = new TextBox();
             btnAra = new Button();
             btnUrunEkle = new Button();
             btnUrunSil = new Button();
             btnDosyayaKaydet = new Button();
-            dataGridView1 = new DataGridView();
+            dataGridViewUrun = new DataGridView();
             lblLastWrite = new Label();
             btnGuncelle = new Button();
             btnListele = new Button();
             pcBoxProductImage = new PictureBox();
             btnResimYukle = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUrun).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pcBoxProductImage).BeginInit();
             SuspendLayout();
             // 
-            // textBoxUrunID
+            // txtBoxUrunID
             // 
-            textBoxUrunID.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            textBoxUrunID.Location = new Point(45, 22);
-            textBoxUrunID.MaxLength = 100;
-            textBoxUrunID.Name = "textBoxUrunID";
-            textBoxUrunID.PlaceholderText = "Urun ID";
-            textBoxUrunID.Size = new Size(125, 27);
-            textBoxUrunID.TabIndex = 0;
+            txtBoxUrunID.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            txtBoxUrunID.Location = new Point(45, 22);
+            txtBoxUrunID.MaxLength = 100;
+            txtBoxUrunID.Name = "txtBoxUrunID";
+            txtBoxUrunID.PlaceholderText = "Urun ID";
+            txtBoxUrunID.Size = new Size(125, 27);
+            txtBoxUrunID.TabIndex = 0;
             // 
-            // textBoxUrunAdi
+            // txtBoxUrunAdi
             // 
-            textBoxUrunAdi.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            textBoxUrunAdi.Location = new Point(45, 55);
-            textBoxUrunAdi.MaxLength = 100;
-            textBoxUrunAdi.Name = "textBoxUrunAdi";
-            textBoxUrunAdi.PlaceholderText = "Ürün Adı";
-            textBoxUrunAdi.Size = new Size(125, 27);
-            textBoxUrunAdi.TabIndex = 1;
+            txtBoxUrunAdi.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            txtBoxUrunAdi.Location = new Point(45, 55);
+            txtBoxUrunAdi.MaxLength = 100;
+            txtBoxUrunAdi.Name = "txtBoxUrunAdi";
+            txtBoxUrunAdi.PlaceholderText = "Ürün Adı";
+            txtBoxUrunAdi.Size = new Size(125, 27);
+            txtBoxUrunAdi.TabIndex = 1;
             // 
-            // textBoxUrunFiyat
+            // txtBoxUrunFiyat
             // 
-            textBoxUrunFiyat.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            textBoxUrunFiyat.Location = new Point(45, 88);
-            textBoxUrunFiyat.MaxLength = 100;
-            textBoxUrunFiyat.Name = "textBoxUrunFiyat";
-            textBoxUrunFiyat.PlaceholderText = "Ürün Fiyat";
-            textBoxUrunFiyat.Size = new Size(125, 27);
-            textBoxUrunFiyat.TabIndex = 2;
+            txtBoxUrunFiyat.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            txtBoxUrunFiyat.Location = new Point(45, 88);
+            txtBoxUrunFiyat.MaxLength = 100;
+            txtBoxUrunFiyat.Name = "txtBoxUrunFiyat";
+            txtBoxUrunFiyat.PlaceholderText = "Ürün Fiyat";
+            txtBoxUrunFiyat.Size = new Size(125, 27);
+            txtBoxUrunFiyat.TabIndex = 2;
             // 
-            // textBoxKategori
+            // txtBoxKategori
             // 
-            textBoxKategori.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
-            textBoxKategori.Location = new Point(45, 121);
-            textBoxKategori.MaxLength = 100;
-            textBoxKategori.Name = "textBoxKategori";
-            textBoxKategori.PlaceholderText = "Kategori";
-            textBoxKategori.Size = new Size(125, 27);
-            textBoxKategori.TabIndex = 3;
+            txtBoxKategori.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            txtBoxKategori.Location = new Point(45, 121);
+            txtBoxKategori.MaxLength = 100;
+            txtBoxKategori.Name = "txtBoxKategori";
+            txtBoxKategori.PlaceholderText = "Kategori";
+            txtBoxKategori.Size = new Size(125, 27);
+            txtBoxKategori.TabIndex = 3;
             // 
             // btnAra
             // 
@@ -130,15 +130,15 @@
             btnDosyayaKaydet.UseVisualStyleBackColor = false;
             btnDosyayaKaydet.Click += btnDosyaKaydet_Click;
             // 
-            // dataGridView1
+            // dataGridViewUrun
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(45, 219);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(837, 325);
-            dataGridView1.TabIndex = 8;
+            dataGridViewUrun.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewUrun.Location = new Point(45, 219);
+            dataGridViewUrun.Name = "dataGridViewUrun";
+            dataGridViewUrun.RowHeadersWidth = 51;
+            dataGridViewUrun.RowTemplate.Height = 29;
+            dataGridViewUrun.Size = new Size(837, 325);
+            dataGridViewUrun.TabIndex = 8;
             // 
             // lblLastWrite
             // 
@@ -197,22 +197,22 @@
             Controls.Add(btnListele);
             Controls.Add(btnGuncelle);
             Controls.Add(lblLastWrite);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewUrun);
             Controls.Add(btnDosyayaKaydet);
             Controls.Add(btnUrunSil);
             Controls.Add(btnUrunEkle);
             Controls.Add(btnAra);
-            Controls.Add(textBoxKategori);
-            Controls.Add(textBoxUrunFiyat);
-            Controls.Add(textBoxUrunAdi);
-            Controls.Add(textBoxUrunID);
+            Controls.Add(txtBoxKategori);
+            Controls.Add(txtBoxUrunFiyat);
+            Controls.Add(txtBoxUrunAdi);
+            Controls.Add(txtBoxUrunID);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(935, 687);
             MinimumSize = new Size(935, 687);
             Name = "Form1";
             Text = "FormAppCSV";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewUrun).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcBoxProductImage).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -220,15 +220,15 @@
 
         #endregion
 
-        private TextBox textBoxUrunID;
-        private TextBox textBoxUrunAdi;
-        private TextBox textBoxUrunFiyat;
-        private TextBox textBoxKategori;
+        private TextBox txtBoxUrunID;
+        private TextBox txtBoxUrunAdi;
+        private TextBox txtBoxUrunFiyat;
+        private TextBox txtBoxKategori;
         private Button btnAra;
         private Button btnUrunEkle;
         private Button btnUrunSil;
         private Button btnDosyayaKaydet;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewUrun;
         private Label lblLastWrite;
         private Button btnGuncelle;
         private Button btnListele;

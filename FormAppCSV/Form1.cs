@@ -26,6 +26,7 @@ namespace FormAppCSV
         {
 
             urunYonet.Ekle(UruneCevir());
+            GridYenile();
         }
 
         private void btnListele_Click(object sender, EventArgs e)
@@ -48,6 +49,7 @@ namespace FormAppCSV
                 textBoxUrunAdi.Text = urun.UrunAdi;
                 textBoxUrunFiyat.Text = urun.Fiyat.ToString();
                 textBoxKategori.Text = urun.Kategori;
+                pcBoxProductImage.Image = urun.Image;
             }
             else
                 MessageBox.Show("Lutfen ID giriniz...");
@@ -56,6 +58,7 @@ namespace FormAppCSV
         private void btnDosyaKaydet_Click(object sender, EventArgs e)
         {
             urunYonet.Kaydet();
+            GridYenile();
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
