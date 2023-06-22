@@ -18,7 +18,7 @@ namespace FormAppCSV
         {
             urunYonet = new UrunYonetici("urunler.csv");
             urunYonet.Yukle();
-            dataGridView1.DataSource = urunYonet.Listele();
+            dataGridViewUrun.DataSource = urunYonet.Listele();
             lblLastWrite.Text = $"Create Date:{Directory.GetCreationTime(Directory.GetCurrentDirectory()).ToString()} \nLast Write:{Directory.GetLastWriteTime("urunler.csv")} ";
         }
 
@@ -36,23 +36,23 @@ namespace FormAppCSV
 
         private void GridYenile()
         {
-            dataGridView1.DataSource = "";
-            dataGridView1.DataSource = urunYonet.Listele();
+            dataGridViewUrun.DataSource = "";
+            dataGridViewUrun.DataSource = urunYonet.Listele();
         }
         private void btnAra_Click(object sender, EventArgs e)
         {
-            if (textBoxUrunID.Text != "")
+            if (txtBoxUrunID.Text != "")
             {
-                int id = int.Parse(textBoxUrunID.Text);
+                int id = int.Parse(txtBoxUrunID.Text);
                 Urun urun = urunYonet.Bul(id);
 
-                textBoxUrunAdi.Text = urun.UrunAdi;
-                textBoxUrunFiyat.Text = urun.Fiyat.ToString();
-                textBoxKategori.Text = urun.Kategori;
+                txtBoxUrunAdi.Text = urun.UrunAdi;
+                txtBoxUrunFiyat.Text = urun.Fiyat.ToString();
+                txtBoxKategori.Text = urun.Kategori;
                 pcBoxProductImage.Image = urun.Image;
             }
             else
-                MessageBox.Show("Lutfen ID giriniz...");
+                MessageBox.Show("Lütfen ID giriniz...");
         }
 
         private void btnDosyaKaydet_Click(object sender, EventArgs e)
@@ -70,17 +70,17 @@ namespace FormAppCSV
         private Urun UruneCevir()
         {
             Urun urun = new Urun();
-            urun.UrunID = int.Parse(textBoxUrunID.Text);
-            urun.UrunAdi = textBoxUrunAdi.Text;
-            urun.Fiyat = double.Parse(textBoxUrunFiyat.Text);
-            urun.Kategori = textBoxKategori.Text;
+            urun.UrunID = int.Parse(txtBoxUrunID.Text);
+            urun.UrunAdi = txtBoxUrunAdi.Text;
+            urun.Fiyat = double.Parse(txtBoxUrunFiyat.Text);
+            urun.Kategori = txtBoxKategori.Text;
             urun.Image = pcBoxProductImage.Image;
             return urun;
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            urunYonet.Sil(int.Parse(textBoxUrunID.Text));
+            urunYonet.Sil(int.Parse(txtBoxUrunID.Text));
             GridYenile();
         }
 
